@@ -1,15 +1,16 @@
 
 class articuloCientifico {
-
+  
   /**
-   * 
+   * @param {Number} id
    * @param {String} titulo 
    * @param {Array} autores 
    * @param {Number} numpags 
    * @param {Number} publicacion 
    * @param {Number} menciones 
    */
-  constructor(titulo, autores, numpags, publicacion, menciones){
+  constructor(id, titulo, autores, numpags, publicacion, menciones){
+    this.id = id;
     this.titulo = titulo;
     this.autores = autores;
     this.numpags = numpags;
