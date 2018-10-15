@@ -1,5 +1,9 @@
 const rl = require('readline-sync');
 
+function busquedaArticulo (x, titulo){
+    return x == titulo;
+};
+
 function numeroDeAutores(num, autores){
     console.log(autores);
     for (let i = 0; i < num ; i++) {
