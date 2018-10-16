@@ -1,6 +1,6 @@
 const rl = require('readline-sync');
 const artCientifico = require('./objetos/articuloCientifico').articuloCientifico;
-const funciones = require('./objetos/funciones').funciones;
+//const funciones = require('./funciones/funciones').funciones;
 var flag = true;
 var final = "";
 var opcion = 0;
@@ -10,9 +10,43 @@ var publicadoEl = 0;
 var menciones = 0;
 var listaArticulos = [];
 var id = 0;
+var ids = 0;
 
-var Funciones = new funciones();
+//var Funciones = new funciones();
 
+/* Funciones */
+
+// Parámetros para los filters
+
+function porId(articulos) {
+    let i = 0;
+    console.log(i);
+    if (articulos.id == ids) {
+        
+        listaArticulos.splice(i,1);
+
+        return articulos.id;
+    }
+
+    i ++;
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+// Inicio del código
 
 var articuloActual=titulo;
 
@@ -47,7 +81,43 @@ while (flag==true) {
 
     }else if (opcion === 2) {
         let encontrado = false;
-        let ids = rl.questionInt('Escribe el ID del artículo científico que quieres borrar: ');
+        ids = rl.questionInt('Escribe el ID del artículo científico que quieres borrar: ');
+
+        //prueba con filter
+
+        let result = listaArticulos.filter(porId);
+        console.log(result);
+
+
+        /*
+        SEMI FUNCIONAL CON FILTER AL VUELO
+
+
+        let result = listaArticulos.filter(listaArticulos => listaArticulos.id == ids);
+        console.log(result);
+        if(isEmpty(result)){
+            console.log();
+            console.log("No se ha podido encontrar el artículo científico especificado, vuelva a intentarlo con otro ID.");
+        }else{
+            result.splice(0,1);
+            encontrado = true;
+            console.log();
+            console.log("El artículo fue eliminado con éxito");
+           
+        }
+            
+        
+        console.log(isEmpty(result));
+        console.log(result);
+        
+
+        ---------------------------------------------------------------------
+
+        FUNCIONAL CON FOR
+
+        let articulogs = listaArticulos.filter(porId, ids);
+        console.log(articulogs);
+
         for (let i=0; i<listaArticulos.length; i++){
             let articulo = listaArticulos[i];
             
@@ -61,7 +131,7 @@ while (flag==true) {
 
             
         }
-        
+        */
         if (encontrado == false) {
             console.log();
             console.log("No se ha podido encontrar el artículo científico especificado, vuelva a intentarlo con otro ID.");
@@ -78,13 +148,13 @@ while (flag==true) {
             if(articulo.id === ids){
                 let numautores = rl.questionInt('Artículo encontrado, escriba cuantos auntores va a tener el artículo: ');
 
-                Funciones.numeroDeAutores(numautores);
+                //Funciones.numeroDeAutores(numautores); aquiiiiiiiiiiiiiiiiiiiii lo de las funciones para mejorar el codigo
 
-                /*
+                
                 for (let i = 0; i < numautores ; i++) {
                     autores[i] = rl.question('Escriba el nombre del autor ' + (i+1) + ': ');
                 }
-                */
+                
                 articulo.cambiarAutores(autores);
                 encontrado = true;
                 console.log();
