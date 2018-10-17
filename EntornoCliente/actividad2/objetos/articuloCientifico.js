@@ -1,5 +1,4 @@
-
-class articuloCientifico {
+class ArticuloCientifico {
   
   /**
    * @param {Number} id
@@ -23,14 +22,6 @@ class articuloCientifico {
     this.autores = autores;
   };
 
-  darAlta(){
-    this.estado = true;
-  }
-
-  darBaja(){
-    this.estado = false;
-  }
-
   cambiarTitulo(titulo){
     this.titulo = titulo;
   }
@@ -48,7 +39,7 @@ class articuloCientifico {
   } 
 }
 
-exports.articuloCientifico = articuloCientifico;
+exports.ArticuloCientifico = ArticuloCientifico;
 
 /*
 
