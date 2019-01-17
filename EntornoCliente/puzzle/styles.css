@@ -1,0 +1,15 @@
+#div_solution{
+    display: inline-block;
+}
+
+#score{
+    display: inline-block
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    border: 3px solid black;
+}
